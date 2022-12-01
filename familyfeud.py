@@ -2,32 +2,61 @@ from tkinter import *
 from time import sleep
 
 
-'''
-Starter Page that introduces us the game!
-'''
 
-
-#SinglePlayer
+#SinglePlayer Frame
 def single():
-    pass
+    hide_frames()
+    single_frame.pack(fill='both',expand=1)
+    heading = Label(single_frame,text ='Alone').pack()
 
-#Multiplayer
+#Multiplayer Frame
 def multi():
-    pass
+    hide_frames()
+    multi_frame.pack(fill='both',expand=1)
+    heading = Label(multi_frame, text ='w Frends').pack()
 
+
+# HOme Frame
+def home():
+    hide_frames()
+    start_frame.pack(fill='both',expand =1 )
+
+# hide prev frames
+def hide_frames():
+    multi_frame.pack_forget()
+    single_frame.pack_forget()
+    start_frame.pack_forget()
 
 root = Tk()
-root.geometry("800x500")
 root.title('SUTD Fued')
+mymenu = Menu(root)
+root.geometry('500x500')
+root.config(menu = mymenu)
+mymenu.add_command(label = 'alone', command = single)
+mymenu.add_command(label = 'w frends', command = multi)
+mymenu.add_command(label = 'home', command = home)
 
-heading_frame = Label(text = 'Welcome to SUTD Feud',font=('Helvetica',25)).pack(pady=20)
 
-button_frame = Frame(root)
-button_frame.pack()
 
+#FRAMES (something like divs in html)
+start_frame = Frame(root, width=500,height=500) #home page
+start_frame.pack(fill='both',expand=1)
+multi_frame = Frame(root, width=500,height=500) #page for multiplayer
+single_frame = Frame(root, width=500,height=500) #page for singleplayer
+
+
+
+
+heading_text = Label(start_frame,text = 'Welcome to SUTD Feud',font=('Helvetica',25)).pack(pady=20)
 # Singlepayer button
+btn1 = Button(start_frame,command= single , text='alone lol').pack()
 # multiplayer button
-btn1 = Button(button_frame, )
+btn2 =Button(start_frame, command = multi, text='u have friends').pack()
+
+
+
+
+
 
 
 
