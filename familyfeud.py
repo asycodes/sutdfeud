@@ -24,7 +24,8 @@ def singlematch(name='none'):
     hide_frames()
     mylabel = Label(singlematch_frame,text='').pack()
     singlematch_frame.pack(fill='both',expand=1)
-    mylabel.config
+    
+
     
     
 
